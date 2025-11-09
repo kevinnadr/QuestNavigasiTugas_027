@@ -1,3 +1,40 @@
 <resources>
     <string name="app_name">QuestNavigasiTugas_027</string>
+    <string name="welcome_selamat_datang">Selamat Datang</string>
+    <string name="welcome_masuk">Masuk</string>
+    <string name="welcome_logo_desc">Logo Aplikasi Card-Lst</string>
+    <string name="welcome_nama_mahasiswa">Kevin Adrian Fidel</string>
+    <string name="welcome_nim_mahasiswa">20230140027</string>
+
+    <string name="list_judul">List Daftar Peserta</string>
+    <string name="list_beranda">Beranda</string>
+    <string name="list_formulir">Formulir</string>
+    <string name="list_label_nama">NAMA LENGKAP</string>
+    <string name="list_label_jk">JENIS KELAMIN</string>
+    <string name="list_label_status">STATUS PERKAWINAN</string>
+    <string name="list_label_alamat">ALAMAT</string>
+
+    <string name="form_judul">Formulir Pendaftaran</string>
+    <string name="form_label_nama">NAMA LENGKAP</string>
+    <string name="form_placeholder_nama">Isikan nama lengkap</string>
+    <string name="form_label_jk">JENIS KELAMIN</string>
+    <string name="form_jk_pria">Laki-laki</string>
+    <string name="form_jk_wanita">Perempuan</string>
+    <string name="form_label_status">STATUS PERKAWINAN</string>
+    <string name="form_status_1">KAWIN</string>
+    <string name="form_status_2">TIDAK KAWIN</string>
+    <string name="form_status_3">JANDA</string>
+    <string name="form_status_4">DUDA</string>
+    <string name="form_label_alamat">ALAMAT</string>
+    <string name="form_placeholder_alamat">Isikan alamat</string>
+    <string name="form_kembali">Kembali</string>
+    <string name="form_submit">Submit</string>
+    <string name="alert_data_kosong_title">Peringatan</string>
+    <string name="alert_data_kosong_message">Semua data harus diisi sebelum submit.</string>
+    <string name="alert_ok">OK</string>
+
+    <string name="alert_konfirmasi_title">Konfirmasi Data</string>
+    <string name="alert_konfirmasi_message">Apakah data yang Anda masukkan sudah benar?</string>
+    <string name="alert_batal">Batal</string>
+    <string name="alert_konfirmasi">Konfirmasi</string>
 </resources>

@@ -128,4 +128,28 @@ fun FormScreen(
                     text = stringResource(id = R.string.form_label_jk),
                     style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.fillMaxWidth()
-                )}
+                )
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.Start
+                ) {
+                    listJenisKelamin.forEach { jk ->
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .selectable(
+                                    selected = (jenisKelamin == jk),
+                                    onClick = { jenisKelamin = jk }
+                                )
+                                .padding(end = dimensionResource(id = R.dimen.padding_medium))
+                        ) {
+                            RadioButton(
+                                selected = (jenisKelamin == jk),
+                                onClick = { jenisKelamin = jk }
+                            )
+                            Text(text = jk)
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+

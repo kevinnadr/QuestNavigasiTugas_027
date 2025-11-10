@@ -1,11 +1,14 @@
 package com.example.questnavigasitugas_027.Views
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
+import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
@@ -64,5 +67,11 @@ fun ListScreen(
                 }
             }
         }
-    ) {}
+    ) { innerPadding ->
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ){
+
+        }
+    }
 }

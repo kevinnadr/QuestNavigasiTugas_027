@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -103,5 +104,22 @@ fun ListScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun InfoItem(label: String, value: String, modifier: Modifier = Modifier) {
+    Column(modifier = modifier) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodySmall,
+            fontWeight = FontWeight.Bold,
+            fontSize = 14.sp
+        )
+        Spacer(modifier = Modifier.padding(top = 6.dp))
+        Text(
+            text = value,
+            style = MaterialTheme.typography.bodyMedium,
+        )
     }
 }

@@ -199,4 +199,126 @@ fun FormScreen(
 
 
                 Spacer(modifier = Modifier.padding(top = 100.dp))
+
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceAround
+                ) {
+                    OutlinedButton(onClick = onKmblBtnClick) {
+                        Text(text = stringResource(id = R.string.form_kembali))
+                    }
+
+                    Button(
+                        onClick = {
+
+                            val dataValid = nama.isNotBlank() && alamat.isNotBlank() && jenisKelamin != null && statusPerkawinan != null
+
+                            if (dataValid) {
+
+                                dataToConfirm = Data(
+                                    nama = nama,
+                                    jenisKelamin = jenisKelamin!!,
+                                    statusPerkawinan = statusPerkawinan!!,
+                                    alamat = alamat
+                                )
+                                showKonfirmasiAlert = true
+                            } else {
+
+                                showDataKosongAlert = true
+                            }
+                        }
+
+
+                    ) {
+                        Text(text = stringResource(id = R.string.form_submit))
+                    }
+                }
+            }
+        }
+    }
+
+
+    if (showDataKosongAlert) {
+        AlertDialogDataKosong(
+            onDismiss = { showDataKosongAlert = false }
+        )
+    }
+
+
+    if (showKonfirmasiAlert && dataToConfirm != null) {
+        AlertDialogKonfirmasi(
+            data = dataToConfirm!!,
+            onDismiss = {
+                showKonfirmasiAlert = false
+                dataToConfirm = null
+            },
+            onConfirm = {
+                onSmbtBtnClick(dataToConfirm!!)
+                showKonfirmasiAlert = false
+                dataToConfirm = null
+            }
+        )
+    }
+}
+
+
+@Composable
+private fun AlertDialogDataKosong(onDismiss: () -> Unit) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(id = R.string.alert_data_kosong_title)) },
+        text = { Text(stringResource(id = R.string.alert_data_kosong_message)) },
+        confirmButton = {
+            Button(onClick = onDismiss) {
+                Text(stringResource(id = R.string.alert_ok))
+            }
+        }
+    )
+}
+
+
+@Composable
+private fun AlertDialogKonfirmasi(
+    data: Data ,
+    onDismiss: () -> Unit,
+    onConfirm: () -> Unit
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(id = R.string.alert_konfirmasi_title)) },
+        text = {
+
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Text(stringResource(id = R.string.alert_konfirmasi_message))
+
+
+                Text(
+                    text = "${stringResource(id = R.string.list_label_nama)}: ${data.nama}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(
+                    text = "${stringResource(id = R.string.list_label_jk)}: ${data.jenisKelamin}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(
+                    text = "${stringResource(id = R.string.list_label_status)}: ${data.statusPerkawinan}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+                Text(
+                    text = "${stringResource(id = R.string.list_label_alamat)}: ${data.alamat}",
+                    style = MaterialTheme.typography.bodyMedium
+                )
+            }
+        },
+        dismissButton = {
+            OutlinedButton(onClick = onDismiss) {
+                Text(stringResource(id = R.string.alert_batal))
+            }
+        },
+        confirmButton = {
+            Button(onClick = onConfirm) {
+                Text(stringResource(id = R.string.alert_konfirmasi))
+            }
+        }
+    )
 }

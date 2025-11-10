@@ -1,11 +1,16 @@
 package com.example.questnavigasitugas_027.Views
 
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import com.example.questnavigasitugas_027.Data
 import com.example.questnavigasitugas_027.R
@@ -41,4 +46,11 @@ fun FormScreen(
     var showDataKosongAlert by remember { mutableStateOf(false) }
     var showKonfirmasiAlert by remember { mutableStateOf(false) }
     var dataToConfirm by remember { mutableStateOf<Data?>(null) }
+
+    Image(
+        modifier = Modifier.fillMaxSize(),
+        painter = painterResource(id = R.drawable.black),
+        contentDescription = null,
+        contentScale = ContentScale.Crop
+    )
 }

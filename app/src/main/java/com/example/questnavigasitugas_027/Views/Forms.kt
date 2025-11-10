@@ -187,4 +187,16 @@ fun FormScreen(
                     }
                 }
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+
+
+                OutlinedTextField(
+                    value = alamat,
+                    onValueChange = { alamat = it },
+                    label = { Text(stringResource(id = R.string.form_label_alamat)) },
+                    placeholder = { Text(stringResource(id = R.string.form_placeholder_alamat)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
+
+
+                Spacer(modifier = Modifier.padding(top = 100.dp))
 }

@@ -4,8 +4,11 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,7 +29,7 @@ fun WelcomeScreen(
 ){
     Image(
         modifier = Modifier.fillMaxSize(),
-        painter = painterResource(id = R.drawable.redcanvas),
+        painter = painterResource(id = R.drawable.black),
         contentDescription = null,
         contentScale = ContentScale.Crop
     )
@@ -69,5 +72,15 @@ fun WelcomeScreen(
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Bold
         )
+        Spacer(modifier = Modifier.padding(bottom = 40.dp))
+        Button(
+            onClick = onMskBtnClick,
+            modifier = Modifier
+                .fillMaxWidth(0.9f)
+                .padding( start = 55.dp, end = 55.dp)
+                .height(height = 50.dp),
+        ) {
+            Text(text = stringResource(id = R.string.welcome_masuk))
+        }
     }
 }

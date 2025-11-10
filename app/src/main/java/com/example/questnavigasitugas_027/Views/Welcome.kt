@@ -42,7 +42,7 @@ fun WelcomeScreen(
             fontSize = 38.sp,
             fontWeight = FontWeight.Bold,
             style = MaterialTheme.typography.bodyLarge,
-            color = Color.Gray,
+            color = Color.LightGray,
         )
         Spacer(modifier = Modifier.padding(top = 50.dp))
 
@@ -50,6 +50,24 @@ fun WelcomeScreen(
             painter = painterResource(id = R.drawable.logo1),
             contentDescription = stringResource(id = R.string.welcome_logo_desc),
             modifier = Modifier.size(300.dp) ,
+        )
+        Spacer(modifier = Modifier.padding(bottom = 30.dp))
+
+        Text(
+            text = stringResource(id = R.string.welcome_nama_mahasiswa),
+            fontSize = 24.sp,
+            color = Color.LightGray,
+            style = MaterialTheme.typography.bodyLarge,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(modifier = Modifier.padding(bottom = 10.dp))
+
+        Text(
+            text = stringResource(id = R.string.welcome_nim_mahasiswa),
+            fontSize = 22.sp,
+            color = Color.LightGray,
+            style = MaterialTheme.typography.bodyMedium,
+            fontWeight = FontWeight.Bold
         )
     }
 }

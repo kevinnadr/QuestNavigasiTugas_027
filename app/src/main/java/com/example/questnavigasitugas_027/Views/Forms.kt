@@ -153,3 +153,38 @@ fun FormScreen(
                 }
                 Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
 
+
+                ExposedDropdownMenuBox(
+                    expanded = isDropdownExpanded,
+                    onExpandedChange = { isDropdownExpanded = it },
+                    modifier = Modifier.fillMaxWidth()
+                ) {
+                    OutlinedTextField(
+                        value = statusPerkawinan ?: "Pilih status kawin",
+                        onValueChange = {},
+                        readOnly = true,
+                        label = { Text(stringResource(id = R.string.form_label_status)) },
+                        trailingIcon = {
+                            ExposedDropdownMenuDefaults.TrailingIcon(expanded = isDropdownExpanded)
+                        },
+                        modifier = Modifier
+                            .menuAnchor()
+                            .fillMaxWidth()
+                    )
+                    ExposedDropdownMenu(
+                        expanded = isDropdownExpanded,
+                        onDismissRequest = { isDropdownExpanded = false }
+                    ) {
+                        listStatus.forEach { status ->
+                            DropdownMenuItem(
+                                text = { Text(status) },
+                                onClick = {
+                                    statusPerkawinan = status
+                                    isDropdownExpanded = false
+                                }
+                            )
+                        }
+                    }
+                }
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+}

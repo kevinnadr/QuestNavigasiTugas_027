@@ -1,14 +1,31 @@
 package com.example.questnavigasitugas_027.Views
 
+import android.R.attr.data
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.selectable
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.Card
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -23,6 +40,7 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
 import com.example.questnavigasitugas_027.Data
 import com.example.questnavigasitugas_027.R
 
@@ -81,5 +99,33 @@ fun FormScreen(
             fontWeight = FontWeight.Bold,
             modifier = Modifier.padding(bottom = dimensionResource(id = R.dimen.padding_medium))
         )
-    }
-}
+
+        Card(
+            modifier = Modifier
+                .padding(horizontal = 16.dp)
+                .padding(top = 10.dp, bottom = 40.dp)
+
+        ) {
+            Column(
+                modifier = Modifier
+                    .padding(top = 30.dp, bottom = 40.dp)
+                    .padding(horizontal = 24.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.spacedBy(12.dp)
+            ) {
+
+                OutlinedTextField(
+                    value = nama,
+                    onValueChange = { nama = it },
+                    label = { Text(stringResource(id = R.string.form_label_nama)) },
+                    placeholder = { Text(stringResource(id = R.string.form_placeholder_nama)) },
+                    modifier = Modifier.fillMaxWidth()
+                )
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+
+
+                Text(
+                    text = stringResource(id = R.string.form_label_jk),
+                    style = MaterialTheme.typography.bodyLarge,
+                    modifier = Modifier.fillMaxWidth()
+                )}

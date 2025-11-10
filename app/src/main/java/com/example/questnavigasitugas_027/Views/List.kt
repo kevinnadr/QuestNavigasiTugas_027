@@ -8,12 +8,14 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MediumTopAppBar
@@ -121,5 +123,47 @@ fun InfoItem(label: String, value: String, modifier: Modifier = Modifier) {
             text = value,
             style = MaterialTheme.typography.bodyMedium,
         )
+    }
+}
+
+
+@Composable
+fun dataCard(data: Data) {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 10.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = dimensionResource(id = R.dimen.card_elevation)),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(dimensionResource(id = R.dimen.padding_medium)),
+        ) {
+            Column(modifier = Modifier.weight(1f).padding(top = 20.dp).padding(start = 25.dp)) {
+                InfoItem(
+                    label = stringResource(id = R.string.list_label_nama),
+                    value = data.nama,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+                InfoItem(
+                    label = stringResource(id = R.string.list_label_status),
+                    value = data.statusPerkawinan
+                )
+            }
+            Spacer(modifier = Modifier.padding(bottom = 100.dp, top = 20.dp))
+            Column(modifier = Modifier.weight(1f).padding(top = 20.dp).padding(start = 30.dp)) {
+                InfoItem(
+                    label = stringResource(id = R.string.list_label_jk),
+                    value = data.jenisKelamin,
+                )
+                Spacer(modifier = Modifier.height(dimensionResource(id = R.dimen.padding_medium)))
+                InfoItem(
+                    label = stringResource(id = R.string.list_label_alamat),
+                    value = data.alamat
+                )
+            }
+        }
     }
 }
